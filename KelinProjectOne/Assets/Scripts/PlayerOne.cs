@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class PlayerOne : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject bullet;
+    public float speed;
+    public float jumpForce;
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.up * Time.deltaTime);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime);
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
     }
 }
