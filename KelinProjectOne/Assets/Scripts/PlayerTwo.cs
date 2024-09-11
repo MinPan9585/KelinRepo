@@ -6,16 +6,11 @@ public class PlayerTwo : MonoBehaviour
 {
     public GameObject bullet;
     public float speed;
-    public float jumpForce;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
-        }
-
+        { }
             if(Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(Vector3.back * speed * Time.deltaTime);
@@ -33,7 +28,7 @@ public class PlayerTwo : MonoBehaviour
                 transform.Translate(-Vector3.right * speed * Time.deltaTime);
             }
 
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
         }
