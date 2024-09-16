@@ -6,7 +6,7 @@ public class GrabGun : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Gun"))
+        if(other.gameObject.CompareTag("Weapon"))
         {
             //grab the gun
             other.gameObject.transform.SetParent(transform);
