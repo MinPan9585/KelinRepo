@@ -28,7 +28,7 @@ public class PlayerTwo : MonoBehaviour
                 transform.Translate(-Vector3.right * speed * Time.deltaTime);
             }
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
         }
