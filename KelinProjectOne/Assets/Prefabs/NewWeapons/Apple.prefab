@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3309803997034281985}
   - component: {fileID: -9171709003282835906}
   - component: {fileID: 4355359345115694865}
+  - component: {fileID: 6413264092007436788}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Weapon
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6413264092007436788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953036531679073574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f02347fc32858439d08d865b5dd2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeFX: {fileID: 4895783243530636121, guid: 79b60fa08877a7040b867c8f95a106ac,
+    type: 3}

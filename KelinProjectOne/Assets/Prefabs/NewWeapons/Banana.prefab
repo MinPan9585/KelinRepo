@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4300634426783786625}
   - component: {fileID: 4174323599017776756}
   - component: {fileID: -2584894434424914865}
+  - component: {fileID: -8771420488506561851}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Weapon
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8771420488506561851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929996204316160630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f02347fc32858439d08d865b5dd2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeFX: {fileID: 8907546859717854138, guid: 1e19434e24eb2014e909a29322380196,
+    type: 3}

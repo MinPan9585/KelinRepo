@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7777345587705163231}
   - component: {fileID: -7002323062741278981}
   - component: {fileID: -6647930106108382717}
+  - component: {fileID: 20254118774215141}
   m_Layer: 0
   m_Name: Garlic
   m_TagString: Weapon
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &20254118774215141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485780297151068568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f02347fc32858439d08d865b5dd2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeFX: {fileID: 4895783243530636121, guid: 79b60fa08877a7040b867c8f95a106ac,
+    type: 3}

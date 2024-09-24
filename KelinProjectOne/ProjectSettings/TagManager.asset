@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Gun
   - Weapon
+  - Ground
+  - PlayerOne
+  - PlayerTwo
   layers:
   - Default
   - TransparentFX

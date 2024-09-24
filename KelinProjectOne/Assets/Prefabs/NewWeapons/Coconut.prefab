@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 477099757560019170}
   - component: {fileID: 905483352988766350}
   - component: {fileID: -5380684253896430055}
+  - component: {fileID: 3104961356165403659}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Weapon
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3104961356165403659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281599282994185899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f02347fc32858439d08d865b5dd2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeFX: {fileID: 1241058587410943728, guid: 34fd21d80aff35b4f9a6090247e63339,
+    type: 3}
