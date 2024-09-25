@@ -105,8 +105,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.32576683
-  m_Center: {x: 0.000000834465, y: 0.00000083446525, z: -0.0000002533198}
+  m_Radius: 0.27574754
+  m_Center: {x: 0.000000834465, y: 0.0000008344651, z: 0.0021986961}
 --- !u!54 &680415626333837600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,3 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeFX: {fileID: 1241058587410943728, guid: 34fd21d80aff35b4f9a6090247e63339,
     type: 3}
+  radius: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isHold: 0

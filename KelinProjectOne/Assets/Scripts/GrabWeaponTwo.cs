@@ -6,6 +6,7 @@ public class GrabWeaponTwo : MonoBehaviour
 {
     private Queue<GameObject> grabbedWeapons = new Queue<GameObject>();
     public Transform[] hands;
+    public float force;
 
     private void Update()
     {
@@ -47,7 +48,9 @@ public class GrabWeaponTwo : MonoBehaviour
         {
             GameObject obj = grabbedWeapons.Dequeue();
             obj.gameObject.transform.SetParent(null);
-            obj.gameObject.transform.position = transform.position + transform.forward * 2;
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.AddForce(force * new Vector3(0, 1, 1));
         }
     }
 
@@ -59,7 +62,9 @@ public class GrabWeaponTwo : MonoBehaviour
             {
                 GameObject obj = grabbedWeapons.Dequeue();
                 obj.gameObject.transform.SetParent(null);
-                obj.gameObject.transform.position = transform.position + transform.forward * 2;
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.AddForce(force * new Vector3(0, 1, 1));
             }
         }
     }

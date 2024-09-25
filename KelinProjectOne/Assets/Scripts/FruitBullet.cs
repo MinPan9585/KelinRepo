@@ -7,20 +7,25 @@ public class FruitBullet : MonoBehaviour
     public GameObject explodeFX;
     public float radius;
     public LayerMask layerMask;
+    public bool isHold = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Ground"))
+        if (!isHold)
         {
-            if(Physics.OverlapSphere(transform.position, radius, layerMask) != null)
+            if (other.gameObject.CompareTag("Ground"))
             {
-                Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);
-                //hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+                if (Physics.OverlapSphere(transform.position, radius, layerMask) != null)
+                {
+                    Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);
+                    //hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+                }
+
+
+                Instantiate(explodeFX, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
-
-
-            Instantiate(explodeFX, transform.position, Quaternion.identity);
-            Destroy(gameObject);
         }
+        
     }
 }
