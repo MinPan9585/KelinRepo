@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrabWeaponOne : MonoBehaviour
 {
+    public AudioController audioCon;
     private Queue<GameObject> grabbedWeapons = new Queue<GameObject>();
     public Transform[] hands;
     public float force;
@@ -13,11 +14,12 @@ public class GrabWeaponOne : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ThrowWeapon();
+            //ThrowWeapon();
+            StartCoroutine("ThrowWeaponCoroutine");
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            ThrowAllWeapon();
+            StartCoroutine("ThrowAllWeaponCoroutine");
         }
     }
 
@@ -56,8 +58,23 @@ public class GrabWeaponOne : MonoBehaviour
             rb.isKinematic = false;
             rb.AddForce(force * new Vector3(0, 1, 1));
             obj.GetComponent<FruitBullet>().isHold = false;
+        }
+    }
 
-            //play animation
+    IEnumerator ThrowWeaponCoroutine()
+    {
+        if (grabbedWeapons.Count > 0)
+        {
+            GameObject obj = grabbedWeapons.Dequeue();
+            obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+
+            yield return new WaitForSeconds(0.7f);
+            
+            obj.gameObject.transform.SetParent(null);
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.AddForce(force * new Vector3(0, 1, 1));
+            obj.GetComponent<FruitBullet>().isHold = false;
         }
     }
 
@@ -72,6 +89,26 @@ public class GrabWeaponOne : MonoBehaviour
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 rb.AddForce(force * new Vector3(0, 1, 1));
+            }
+        }
+    }
+
+    IEnumerator ThrowAllWeaponCoroutine()
+    {
+        if (grabbedWeapons.Count > 0)
+        {
+            while (grabbedWeapons.Count > 0)
+            {
+                GameObject obj = grabbedWeapons.Dequeue();
+                obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+
+                yield return new WaitForSeconds(0.7f);
+
+                obj.gameObject.transform.SetParent(null);
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.AddForce(force * new Vector3(0, 1, 1));
+                //yield return new WaitForSeconds(0.1f);
             }
         }
     }

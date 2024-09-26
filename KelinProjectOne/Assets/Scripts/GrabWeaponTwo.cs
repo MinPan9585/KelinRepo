@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GrabWeaponTwo : MonoBehaviour
 {
+    public AudioController audioCon;
     private Queue<GameObject> grabbedWeapons = new Queue<GameObject>();
     public Transform[] hands;
     public float force;
+    public Animator anim;
 
     private void Update()
     {
