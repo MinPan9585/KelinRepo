@@ -148,3 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeFX: {fileID: 8907546859717854138, guid: 1e19434e24eb2014e909a29322380196,
     type: 3}
+  radius: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  isHold: 0

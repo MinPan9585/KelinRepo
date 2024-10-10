@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerOne : MonoBehaviour
 {
-    public GameObject bullet;
     public float speed;
     public float jumpForce;
 

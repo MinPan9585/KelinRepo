@@ -14,11 +14,11 @@ public class GrabWeaponTwo : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            ThrowWeapon();
+            StartCoroutine("ThrowWeaponCoroutine");
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            ThrowAllWeapon();
+            StartCoroutine("ThrowAllWeaponCoroutine");
         }
     }
 
@@ -36,11 +36,12 @@ public class GrabWeaponTwo : MonoBehaviour
         {
             return;
         }
-        if (grabbedWeapons.Count < 6)
+        if (grabbedWeapons.Count < 5)
         {
             grabbedWeapons.Enqueue(obj);
-            obj.gameObject.transform.SetParent(transform);
-            obj.gameObject.transform.localPosition = new Vector3(1, 1, 1);
+            obj.gameObject.transform.SetParent(hands[grabbedWeapons.Count - 1]);
+            obj.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+            obj.GetComponent<FruitBullet>().isHold = true;
         }
     }
 
@@ -49,10 +50,30 @@ public class GrabWeaponTwo : MonoBehaviour
         if (grabbedWeapons.Count > 0)
         {
             GameObject obj = grabbedWeapons.Dequeue();
+            obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+
             obj.gameObject.transform.SetParent(null);
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.AddForce(force * new Vector3(0, 1, 1));
+            obj.GetComponent<FruitBullet>().isHold = false;
+        }
+    }
+
+    IEnumerator ThrowWeaponCoroutine()
+    {
+        if (grabbedWeapons.Count > 0)
+        {
+            GameObject obj = grabbedWeapons.Dequeue();
+            obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+
+            yield return new WaitForSeconds(0.7f);
+
+            obj.gameObject.transform.SetParent(null);
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.AddForce(force * new Vector3(0, 1, 1));
+            obj.GetComponent<FruitBullet>().isHold = false;
         }
     }
 
@@ -67,6 +88,26 @@ public class GrabWeaponTwo : MonoBehaviour
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 rb.AddForce(force * new Vector3(0, 1, 1));
+            }
+        }
+    }
+
+    IEnumerator ThrowAllWeaponCoroutine()
+    {
+        if (grabbedWeapons.Count > 0)
+        {
+            while (grabbedWeapons.Count > 0)
+            {
+                GameObject obj = grabbedWeapons.Dequeue();
+                obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+
+                yield return new WaitForSeconds(0.7f);
+
+                obj.gameObject.transform.SetParent(null);
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.AddForce(force * new Vector3(0, 1, 1));
+                //yield return new WaitForSeconds(0.1f);
             }
         }
     }

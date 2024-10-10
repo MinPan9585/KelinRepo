@@ -17,9 +17,18 @@ public class FruitBullet : MonoBehaviour
             {
                 if (Physics.OverlapSphere(transform.position, radius, layerMask) != null)
                 {
+                    Debug.Log("hit something");
                     Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);
-                    //hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+                    if(hits.Length > 0)
+                    {
+                        //if (hits[0].gameObject.CompareTag("Player"))
+                        {
+                            Debug.Log("Hit Player");
+                            hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+                        }
+                    }
                 }
+
 
 
                 Instantiate(explodeFX, transform.position, Quaternion.identity);

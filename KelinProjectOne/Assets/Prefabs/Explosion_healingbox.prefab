@@ -4914,7 +4914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3827064021865277749}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.18, y: 1.91, z: 22.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4923,7 +4923,7 @@ Transform:
   - {fileID: 8584688496678865712}
   - {fileID: 6133175063694479837}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &6207571206287363695
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14963,7 +14963,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15656,7 +15656,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 5
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -15721,25 +15721,25 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 4.248996
-          outSlope: 4.248996
+          value: 0.5797119
+          inSlope: 2.4791503
+          outSlope: 2.4791503
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.14436707
+          outWeight: 0.5102241
         - serializedVersion: 3
-          time: 0.22587347
-          value: 0.7349788
-          inSlope: 1.1115258
-          outSlope: 1.1115258
+          time: 0.18265295
+          value: 0.9213115
+          inSlope: 0.5838171
+          outSlope: 0.5838171
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.13647413
+          outWeight: 0.29940525
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0.40372658
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -19520,7 +19520,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1869a852850d40c48a7130537782c927, type: 2}
+  - {fileID: 2100000, guid: 208994ece277e7246ac89522f86168ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

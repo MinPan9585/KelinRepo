@@ -67,7 +67,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 82
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -796,7 +796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fae9f5f4118b9248b37ef02524fcd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6740719231691344276, guid: 65814511f57bfe644bcd48bee634475d, type: 3}
   speed: 5
   jumpForce: 8
 --- !u!114 &4528870680330198269
@@ -811,6 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c1c3a3f6adfc14ea0940bad14f0390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioCon: {fileID: 0}
   hands:
   - {fileID: 1359071291305060880}
   - {fileID: 1604160663978351060}
@@ -818,6 +818,7 @@ MonoBehaviour:
   - {fileID: 7519115192276134622}
   - {fileID: 5180133718665254186}
   force: 500
+  anim: {fileID: 0}
 --- !u!1 &7608412802263997103
 GameObject:
   m_ObjectHideFlags: 0
