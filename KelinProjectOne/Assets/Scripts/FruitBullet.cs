@@ -8,6 +8,9 @@ public class FruitBullet : MonoBehaviour
     public float radius;
     public LayerMask layerMask;
     public bool isHold = false;
+    public bool isFirstContact = true;
+    public int index;
+    GameObject watermelonBlock;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,7 +32,13 @@ public class FruitBullet : MonoBehaviour
                     }
                 }
 
-
+                if(index == 5)
+                {
+                    GameObject uiCanvas = GameObject.Find("Canvas");
+                    watermelonBlock = uiCanvas.transform.GetChild(6).gameObject;
+                    //instantiate blocking vfx
+                    watermelonBlock.SetActive(true);
+                }
 
                 Instantiate(explodeFX, transform.position, Quaternion.identity);
                 Destroy(gameObject);

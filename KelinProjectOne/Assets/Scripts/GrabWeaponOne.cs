@@ -9,6 +9,7 @@ public class GrabWeaponOne : MonoBehaviour
     public Transform[] hands;
     public float force;
     public Animator anim;
+    public Transform armSocket;
 
     private void Update()
     {
@@ -27,23 +28,42 @@ public class GrabWeaponOne : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            GrabWeapon(other.gameObject);
+            if (grabbedWeapons.Count < 5)
+            {
+                if (other.gameObject.GetComponent<FruitBullet>().isFirstContact == false)
+                {
+                    return;
+                }
+                else
+                {
+                    GrabWeapon(other.gameObject);
+                    other.gameObject.GetComponent<FruitBullet>().isFirstContact = false;
+                    Debug.Log("111");
+                }
+            }
+            else
+            {
+                return;
+            } 
         }
     }
 
     private void GrabWeapon(GameObject obj)
     {
-        if (grabbedWeapons.Count >= 5)
-        {
-            return;
-        }
-        if (grabbedWeapons.Count < 5)
-        {
+        //if (grabbedWeapons.Count >= 5)
+        //{
+        //    return;
+        //}
+        //if (grabbedWeapons.Count < 5)
+        //{
+            //Debug.Log("Queue count before enqueue: " + grabbedWeapons.Count);
             grabbedWeapons.Enqueue(obj);
+            armSocket.GetChild(grabbedWeapons.Count - 1).gameObject.SetActive(true);
+            //Debug.Log("Queue count before enqueue: " + grabbedWeapons.Count);
             obj.gameObject.transform.SetParent(hands[grabbedWeapons.Count - 1]);
             obj.gameObject.transform.localPosition = new Vector3(0, 0, 0);
             obj.GetComponent<FruitBullet>().isHold = true;
-        }
+        //}
     }
 
     private void ThrowWeapon()
@@ -65,12 +85,18 @@ public class GrabWeaponOne : MonoBehaviour
     {
         if (grabbedWeapons.Count > 0)
         {
+            //Debug.Log("Queue count before Dequeue: " + grabbedWeapons.Count);
             GameObject obj = grabbedWeapons.Dequeue();
+            //Debug.Log("Queue count after Dequeue: " + grabbedWeapons.Count);
             obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
 
-            yield return new WaitForSeconds(0.7f);
             
+
+            yield return new WaitForSeconds(0.7f);
+
+            obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.gameObject.SetActive(false);
             obj.gameObject.transform.SetParent(null);
+            
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.AddForce(force * new Vector3(0, 1, 1));
@@ -104,6 +130,7 @@ public class GrabWeaponOne : MonoBehaviour
 
                 yield return new WaitForSeconds(0.7f);
 
+                obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.gameObject.SetActive(false);
                 obj.gameObject.transform.SetParent(null);
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
                 rb.isKinematic = false;

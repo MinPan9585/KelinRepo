@@ -153,3 +153,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isHold: 0
+  isFirstContact: 1
+  index: 4

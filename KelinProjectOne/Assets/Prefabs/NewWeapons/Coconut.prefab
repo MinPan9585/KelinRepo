@@ -115,7 +115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6281599282994185899}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 2.07
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -148,8 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeFX: {fileID: 1241058587410943728, guid: 34fd21d80aff35b4f9a6090247e63339,
     type: 3}
-  radius: 2
+  radius: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   isHold: 0
+  isFirstContact: 1
+  index: 2
