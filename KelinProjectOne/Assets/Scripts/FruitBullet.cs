@@ -14,6 +14,7 @@ public class FruitBullet : MonoBehaviour
     GameObject watermelonBlockTwo;
     public bool isPlayerOne = false;
     public GameObject player;
+    public int damage;
 
     private void Start()
     {
@@ -37,11 +38,9 @@ public class FruitBullet : MonoBehaviour
                     player = GameObject.Find("PlayerTwo");
                 }
                 Debug.Log("Healing");
-                if (player.GetComponent<PlayerHealth>().currentHp < 100)
-                    {
-                        player.GetComponent<PlayerHealth>().currentHp += 10;
-                        Destroy(other.gameObject);
-                    }
+                
+                        player.GetComponent<PlayerHealth>().currentHp += 20;
+                        Destroy(other.transform.parent.gameObject);
             }
             if (other.gameObject.CompareTag("Ground"))
             {
@@ -54,7 +53,7 @@ public class FruitBullet : MonoBehaviour
                         //if (hits[0].gameObject.CompareTag("Player"))
                         {
                             Debug.Log("Hit Player");
-                            hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+                            hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                         }
                     }
 

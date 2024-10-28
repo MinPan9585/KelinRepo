@@ -38,7 +38,7 @@ public class GrabWeaponOne : MonoBehaviour
                 {
                     GrabWeapon(other.gameObject);
                     other.gameObject.GetComponent<FruitBullet>().isFirstContact = false;
-                    Debug.Log("111");
+                    //Debug.Log("111");
                 }
             }
             else
@@ -67,20 +67,20 @@ public class GrabWeaponOne : MonoBehaviour
         //}
     }
 
-    private void ThrowWeapon()
-    {
-        if (grabbedWeapons.Count > 0)
-        {
-            GameObject obj = grabbedWeapons.Dequeue();
-            obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
+    //private void ThrowWeapon()
+    //{
+    //    if (grabbedWeapons.Count > 0)
+    //    {
+    //        GameObject obj = grabbedWeapons.Dequeue();
+    //        obj.transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<Animator>().SetTrigger("Throw");
 
-            obj.gameObject.transform.SetParent(null);
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
-            rb.isKinematic = false;
-            rb.AddForce(force * new Vector3(0, 1, 1));
-            obj.GetComponent<FruitBullet>().isHold = false;
-        }
-    }
+    //        obj.gameObject.transform.SetParent(null);
+    //        Rigidbody rb = obj.GetComponent<Rigidbody>();
+    //        rb.isKinematic = false;
+    //        rb.AddForce(force * new Vector3(0, 1, 1));
+    //        obj.GetComponent<FruitBullet>().isHold = false;
+    //    }
+    //}
 
     IEnumerator ThrowWeaponCoroutine()
     {
@@ -105,20 +105,20 @@ public class GrabWeaponOne : MonoBehaviour
         }
     }
 
-    private void ThrowAllWeapon()
-    {
-        if (grabbedWeapons.Count > 0)
-        {
-            while (grabbedWeapons.Count > 0)
-            {
-                GameObject obj = grabbedWeapons.Dequeue();
-                obj.gameObject.transform.SetParent(null);
-                Rigidbody rb = obj.GetComponent<Rigidbody>();
-                rb.isKinematic = false;
-                rb.AddForce(force * new Vector3(0, 1, 1));
-            }
-        }
-    }
+    //private void ThrowAllWeapon()
+    //{
+    //    if (grabbedWeapons.Count > 0)
+    //    {
+    //        while (grabbedWeapons.Count > 0)
+    //        {
+    //            GameObject obj = grabbedWeapons.Dequeue();
+    //            obj.gameObject.transform.SetParent(null);
+    //            Rigidbody rb = obj.GetComponent<Rigidbody>();
+    //            rb.isKinematic = false;
+    //            rb.AddForce(force * new Vector3(0, 1, 1));
+    //        }
+    //    }
+    //}
 
     IEnumerator ThrowAllWeaponCoroutine()
     {

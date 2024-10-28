@@ -155,3 +155,6 @@ MonoBehaviour:
   isHold: 0
   isFirstContact: 1
   index: 5
+  isPlayerOne: 0
+  player: {fileID: 0}
+  damage: 20
