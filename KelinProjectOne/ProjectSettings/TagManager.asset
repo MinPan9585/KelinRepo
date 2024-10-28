@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - PlayerOne
   - PlayerTwo
+  - Healing
   layers:
   - Default
   - TransparentFX

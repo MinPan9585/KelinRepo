@@ -63,6 +63,7 @@ public class GrabWeaponOne : MonoBehaviour
             obj.gameObject.transform.SetParent(hands[grabbedWeapons.Count - 1]);
             obj.gameObject.transform.localPosition = new Vector3(0, 0, 0);
             obj.GetComponent<FruitBullet>().isHold = true;
+        obj.GetComponent<FruitBullet>().isPlayerOne = true;
         //}
     }
 

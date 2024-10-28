@@ -10,12 +10,39 @@ public class FruitBullet : MonoBehaviour
     public bool isHold = false;
     public bool isFirstContact = true;
     public int index;
-    GameObject watermelonBlock;
+    GameObject watermelonBlockOne;
+    GameObject watermelonBlockTwo;
+    public bool isPlayerOne = false;
+    public GameObject player;
 
+    private void Start()
+    {
+        GameObject uiCanvas = GameObject.Find("Canvas");
+        watermelonBlockOne = uiCanvas.transform.GetChild(6).gameObject;
+        watermelonBlockTwo = uiCanvas.transform.GetChild(7).gameObject;
+        
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!isHold)
         {
+            if(other.gameObject.CompareTag("Healing"))
+            {
+                if (isPlayerOne)
+                {
+                    player = GameObject.Find("PlayerOne");
+                }
+                else
+                {
+                    player = GameObject.Find("PlayerTwo");
+                }
+                Debug.Log("Healing");
+                if (player.GetComponent<PlayerHealth>().currentHp < 100)
+                    {
+                        player.GetComponent<PlayerHealth>().currentHp += 10;
+                        Destroy(other.gameObject);
+                    }
+            }
             if (other.gameObject.CompareTag("Ground"))
             {
                 if (Physics.OverlapSphere(transform.position, radius, layerMask) != null)
@@ -30,20 +57,54 @@ public class FruitBullet : MonoBehaviour
                             hits[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
                         }
                     }
+
+                    if (index == 5)
+                    {
+                        if (isPlayerOne)
+                        {   
+                            if(watermelonBlockOne.activeSelf == true)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                watermelonBlockOne.SetActive(true);
+                                StartCoroutine(CloseWatermelonOne());
+                            }
+                        }
+                        else
+                        {
+                            if (watermelonBlockTwo.activeSelf == true)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                watermelonBlockTwo.SetActive(true);
+                                StartCoroutine(CloseWatermelonTwo());
+                            }
+                        }
+                    }
                 }
 
-                if(index == 5)
-                {
-                    GameObject uiCanvas = GameObject.Find("Canvas");
-                    watermelonBlock = uiCanvas.transform.GetChild(6).gameObject;
-                    //instantiate blocking vfx
-                    watermelonBlock.SetActive(true);
-                }
+                
 
                 Instantiate(explodeFX, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                Destroy(gameObject, 4);
             }
         }
         
+    }
+
+    IEnumerator CloseWatermelonOne()
+    {
+        yield return new WaitForSeconds(3f);
+        watermelonBlockOne.SetActive(false);
+        print("333");
+    }
+    IEnumerator CloseWatermelonTwo()
+    {
+        yield return new WaitForSeconds(3f);
+        watermelonBlockTwo.SetActive(false);
     }
 }
